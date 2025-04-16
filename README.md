@@ -47,11 +47,13 @@ docker build -t floutage-ai .
 ### 3. Lancer l’environnement JupyterLab
 ```bash
 
-docker run -p 8888:8888 -v "$(pwd)":/workspace -it floutage-ai
+docker run -p 8888:8888 -v "$(pwd)":/floutage-ai -it floutage-ai
 ```
 
-Ouvre ton navigateur et accède à :
+Ouvre ton navigateur et accède à (copie le token affiché dans le terminal après le lancement du container):
 👉 http://localhost:8888
+
+Ou tout simplement cliquez sur le lien URL dans le Terminal après le lancement du container.
 
 Sélectionne le kernel Floutage IA (Docker) dans JupyterLab
 
