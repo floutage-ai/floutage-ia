@@ -47,7 +47,7 @@ docker build -t floutage-ai .
 ### 3. Lancer l’environnement JupyterLab
 ```bash
 
-docker run -p 8888:8888 -v "$(pwd)":/floutage-ai -it floutage-ai
+docker run -p 8888:8888 -v "$(pwd)":/workspace -it floutage-ai
 ```
 
 Ouvre ton navigateur et accède à (copie le token affiché dans le terminal après le lancement du container):
