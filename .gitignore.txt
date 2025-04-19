@@ -23,6 +23,10 @@ venv/
 output/
 *.mp4
 
+# Ne pas versionner les données locales
+videos/
+output/
+
 # Jupyter runtime
 *.json
 *.local/share/jupyter/

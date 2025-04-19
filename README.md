@@ -1,112 +1,81 @@
-# 🕵️‍♂️ Floutage AI – Détection et floutage automatique des personnes dans les vidéos
+# Floutage AI – README
 
-[![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://www.python.org/)
-[![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)](https://www.docker.com/)
-[![Jupyter](https://img.shields.io/badge/JupyterLab-enabled-orange?logo=jupyter)](https://jupyter.org/)
-[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](./CONTRIBUTING.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+Bienvenue dans **Floutage AI**, une application basée sur l’intelligence artificielle pour le floutage automatique des personnes et des informations sensibles dans des vidéos filmées par drone.
 
 ---
 
-## 🎯 Objectif du projet
+## 🚀 Objectif du projet
 
-**Floutage AI** est une application d’intelligence artificielle développée en Python permettant de :
-- détecter automatiquement les personnes dans des vidéos,
-- flouter ces personnes pour garantir leur anonymat,
-- exploiter des modèles comme YOLOv8 et OpenCV,
-- utiliser une interface interactive via **JupyterLab**.
-
----
-
-## ⚙️ Stack technique
-
-- Python 3.10
-- OpenCV
-- Ultralytics YOLOv8
-- Torch (CPU ou GPU)
-- Docker (environnement isolé)
-- JupyterLab (interface interactive)
+Créer une application performante qui :
+- Détecte les humains et éléments privés (visages, plaques, numéros de maison)
+- Floute automatiquement ces éléments dans les vidéos
+- Fonctionne en environnement Docker avec interface JupyterLab
 
 ---
 
-## 🏗️ Installation locale avec Docker
+## 🧠 Technologies principales
 
-### 1. Cloner le dépôt
+- Python 3.10+
+- OpenCV / YOLO / MediaPipe
+- JupyterLab (via Docker)
+
+---
+
+## ⚙️ Lancement rapide (via Docker)
 
 ```bash
-git clone https://github.com/floutage-ai/floutage-ia.git
-cd floutage-ai
-```
----
-### 2. Construire l’image Docker
-```bash
-
+# Build l'image Docker
 docker build -t floutage-ai .
+
+# Lance le conteneur avec JupyterLab
+# (exemple pour terminal Windows CMD)
+docker run -p 8888:8888 -v "%cd%:/workspace" -it floutage-ai
 ```
 
-### 3. Lancer l’environnement JupyterLab
-```bash
-
-docker run -p 8888:8888 -v "$(pwd)":/workspace -it floutage-ai
-```
-
-Ouvre ton navigateur et accède à (copie le token affiché dans le terminal après le lancement du container):
-👉 http://localhost:8888
-
-Ou tout simplement cliquez sur le lien URL dans le Terminal après le lancement du container.
-
-Sélectionne le kernel Floutage IA (Docker) dans JupyterLab
+> 📁 Les notebooks sont accessibles dans `/workspace` une fois Jupyter lancé.
 
 ---
 
-## 📁 Arborescence du projet
-``` lua
+## 📂 Structure du dépôt
 
+```
 floutage-ai/
-├── Dockerfile
-├── requirements.txt
-├── notebooks/
-│   └── main.ipynb
-├── videos/
-│   └── (tes vidéos à flouter)
-├── output/
-│   └── (vidéos floutées)
-├── .gitignore
-├── README.md
-└── LICENSE
+├── notebooks/         # Notebooks Jupyter (travail principal)
+├── output/            # Résultats du traitement (non versionné)
+├── videos/            # Données d’entrée (non versionnées)
+├── .github/           # CODEOWNERS, workflows, etc.
+├── .gitignore         # Fichiers/dossiers exclus
+├── Dockerfile         # Image Docker de l'environnement
+├── requirements.txt   # Dépendances Python
+├── README.md          # Présent fichier
+└── CONTRIBUTING.md    # Guide pour les contributeurs
 ```
----
-
-## 🧑‍💻 Branches de travail & Rôles
-
-
-master	    Version stable du projet
-
-hamza-dev	Développement de Hamza
-
-dorra-dev	Développement de Dorra
-
-joselio-dev	Développement de Joselio
 
 ---
 
-## 🤝 Contribution
+## 👤 Responsable de validation des contributions
 
-Clonez le repo
+Les Pull Requests vers la branche `main` doivent être **validées par Alexandre (@alexmoreau-elixotech)**. 
+Cette validation est requise automatiquement grâce au fichier [`CODEOWNERS`](.github/CODEOWNERS).
 
-Travaillez sur votre branche (hamza-dev, etc.)
-
-Créez une Pull Request vers master une fois une fonctionnalité prête
-
-Suivez les bonnes pratiques de versionnage et de nommage
+Aucune modification directe sur `main` n’est autorisée sans validation.
 
 ---
 
-## 📜 Licence
+## 🤝 Contribuer
 
-Ce projet est sous licence MIT – voir le fichier LICENSE pour plus d'informations.
+Voir le fichier [`CONTRIBUTING.md`](CONTRIBUTING.md) pour :
+- Le workflow Git en équipe
+- La création de branches (`prenom-dev`)
+- Les conventions de commit
+- Le rôle d’Alexandre comme validateur principal
 
 ---
 
-## 📬 Contact & Collaboration
-Pour toute question ou suggestion, n'hésitez pas à ouvrir une issue ou à proposer une pull request.
+## 📬 Contact
+
+Pour toute demande, contactez **Hamza** sur Teams ou ouvrez une Issue.
+
+---
+
+Merci pour vos contributions 🙌
