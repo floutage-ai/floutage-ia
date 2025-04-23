@@ -3,15 +3,12 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-*.log
 *.sqlite3
 
-# Notebooks
+# Jupyter notebooks - dossiers temporaires
+notebooks/
+prototypes/
 .ipynb_checkpoints/
-
-# OS junk
-.DS_Store
-Thumbs.db
 
 # Environnements virtuels
 .env
@@ -19,7 +16,11 @@ Thumbs.db
 env/
 venv/
 
-# Docker
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Docker & fichiers de sortie
 output/
 *.mp4
 
@@ -28,7 +29,11 @@ data/
 
 # Jupyter runtime
 *.json
-*.local/share/jupyter/
+.local/share/jupyter/
 
-# VSCode
+# VSCode configuration
 .vscode/
+
+# Fichiers de logs et temporaires
+*.log
+*.tmp
