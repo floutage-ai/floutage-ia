@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Installer Python et dépendances système
+# Installer Python, pip, OpenCV et dépendances système
 RUN apt update && apt install -y \
     python3.10 \
     python3.10-venv \
@@ -14,19 +14,17 @@ RUN apt update && apt install -y \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Installer les dépendances via requirements.txt
+# Copier et installer les dépendances
 COPY requirements.txt /tmp/requirements.txt
 RUN python3.10 -m pip install --upgrade pip && \
     python3.10 -m pip install -r /tmp/requirements.txt
 
-# Ajouter le kernel Jupyter dans l'environnement
-RUN python3.10 -m pip install ipykernel && \
-    python3.10 -m ipykernel install --user --name=floutage-ia --display-name "Floutage IA (Docker)"
+# Copier le code dans le conteneur
+WORKDIR /app
+COPY . /app
 
-# Répertoire de travail dans le conteneur (monté depuis l’hôte)
-WORKDIR /workspace
+# Exposer le port de Flask
+EXPOSE 5000
 
-# Exposer JupyterLab
-EXPOSE 8888
-
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--allow-root", "--no-browser"]
+# Commande pour lancer l'app Flask
+CMD ["python3.10", "main.py"]
