@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Traitement en cours...</title>
+
+    <!-- Redirection automatique après quelques secondes -->
+    <meta http-equiv="refresh" content="3;URL={{ url_for('main.process_wait') }}">
+
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 80px; }
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 30px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🔄 Traitement en cours...</h2>
+    <p>Merci de patienter, votre vidéo est en train d'être floutée.</p>
+
+    <div class="loader"></div>
+
+</body>
+</html>
