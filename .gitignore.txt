@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+*.sqlite3
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Environnements virtuels
+.env
+.venv/
+env/
+venv/
+
+# Docker
+output/
+*.mp4
+
+# Ne pas versionner les données locales
+data/
+
+# Jupyter runtime
+*.json
+*.local/share/jupyter/
+
+# VSCode
+.vscode/
