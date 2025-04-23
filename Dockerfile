@@ -30,3 +30,9 @@ WORKDIR /workspace
 EXPOSE 8888
 
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--allow-root", "--no-browser"]
+
+# Copie du script de téléchargement du modèle YOLO
+COPY download_model.py /workspace/download_model.py
+
+# Téléchargement du modèle pendant le build
+RUN python /workspace/download_model.py

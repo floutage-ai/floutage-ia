@@ -24,8 +24,7 @@ output/
 *.mp4
 
 # Ne pas versionner les données locales
-videos/
-output/
+data/
 
 # Jupyter runtime
 *.json
