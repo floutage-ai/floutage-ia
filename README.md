@@ -54,31 +54,32 @@ python app/app.py
 ```
 floutage-ia/
 ├── app/
-│   ├── __init__.py          # Initialisation de l'app Flask
-│   ├── app.py               # Point d'entrée Flask
-│   ├── routes.py            # Définition des routes
-│   ├── static/              # Fichiers CSS/JS
-│   └── templates/           # HTML pour Flask
-│       ├── index.html
-│       ├── processing.html
-│       └── result.html
-├── data/                    # Dossier pour vidéos d'entrée et sortie
+│   ├── __init__.py                # Initialisation de l'application Flask
+│   ├── app.py                     # Lancement du serveur Flask
+│   ├── routes.py                  # Définition des routes principales
+│   ├── static/                    # Fichiers CSS/JS et assets statiques
+│   └── templates/                 # Fichiers HTML Jinja2 pour Flask
+│       ├── index.html             # Page d'accueil
+│       ├── processing.html        # Page d'attente de traitement
+│       └── result.html            # Page d'affichage du résultat
 ├── models/
-│   └── floutage.py          # Traitement vidéo (YOLOv8 + OpenCV)
-├── utils/                   # Fonctions auxiliaires
-├── main.py                  # Script principal CLI
-├── download_model.py        # Script de téléchargement YOLOv8
-├── yolov8n.pt               # Fichier de modèle YOLOv8
-├── requirements.txt         # Dépendances Python
-├── Dockerfile               # Image Docker
-├── .gitignore.txt
-├── README.md
-├── LICENSE.txt
-├── CONTRIBUTING.md
-└── .github/                 # Fichiers de contribution GitHub
-    ├── CODEOWNERS
-    ├── ISSUE_TEMPLATE/
-    └── PULL_REQUEST_TEMPLATE.md
+│   ├── floutage.py                # Code de floutage (YOLOv8 + tracking)
+│   └── best.pt                    # Modèle YOLO Medium entraîné (personnalisation VisDrone)
+├── utils/
+│   └── __init__.py                # Utilitaires ou helpers Python
+├── main.py                        # Script principal pour CLI
+├── download_model.py             # Téléchargement du modèle YOLOv8 si nécessaire
+├── requirements.txt              # Liste des dépendances Python
+├── Dockerfile                    # Configuration Docker du projet
+├── .gitignore                    # Fichiers et dossiers ignorés par Git
+├── README.md                     # Documentation du projet
+├── LICENSE.txt                   # Licence d'utilisation
+├── CONTRIBUTING.md               # Guide de contribution
+└── .github/
+    ├── CODEOWNERS                # Fichier des responsables du code
+    ├── ISSUE_TEMPLATE/           # Modèles de tickets GitHub
+    └── PULL_REQUEST_TEMPLATE.md  # Template de Pull Request
+
 ```
 
 ---
