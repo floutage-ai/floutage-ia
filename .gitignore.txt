@@ -1,0 +1,61 @@
+# Environnements virtuels
+venv/
+.env/
+*.env
+
+# Données
+data/
+*.csv
+*.xlsx
+*.tsv
+*.json
+*.xml
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Fichiers multimédia lourds
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.webp
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Fichiers log et temporaires
+*.log
+*.tmp
+*.swp
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Dossiers de test/cache
+.cache/
+.ipynb_checkpoints/
+
+# Fichiers de modèles PyTorch
+*.pt
+!models/best.pt
+
+# Fichiers à ne pas partager
+.gitignore
+CONTRIBUTING
+Dockerfile
+LICENSE
+README
+requirements.txt

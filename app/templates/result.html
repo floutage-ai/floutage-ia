@@ -8,20 +8,32 @@
     <h1>Résultat du traitement</h1>
 
     {% if output_video %}
-        <p>Vidéo traitée avec succès !</p>
+        <p>🎉 Vidéo traitée avec succès !</p>
+
         <video controls autoplay width="640">
             <source src="{{ url_for('main.get_video', filename=output_video) }}" type="video/mp4">
             Votre navigateur ne supporte pas la lecture de vidéos.
         </video>
+
         <p>
-            📁 <strong>Lien direct :</strong> 
-            <a href="{{ url_for('main.get_video', filename=output_video) }}">{{ url_for('main.get_video', filename=output_video) }}</a>
+            📁 <strong>Lien direct :</strong><br>
+            <a href="{{ url_for('main.get_video', filename=output_video) }}">
+                {{ url_for('main.get_video', filename=output_video) }}
+            </a>
         </p>
+
+        <p>
+            📥 <strong>Télécharger la vidéo :</strong><br>
+            <a href="{{ url_for('main.get_video', filename=output_video) }}" download>
+                Télécharger le fichier mp4
+            </a>
+        </p>
+
     {% else %}
-        <p>Aucune vidéo n'a été générée.</p>
+        <p>❌ Aucune vidéo n'a été générée.</p>
     {% endif %}
 
     <br><br>
-    <a href="{{ url_for('main.index') }}">← Retour</a>
+    <a href="{{ url_for('main.index') }}">← Retour à l'accueil</a>
 </body>
 </html>
