@@ -1,31 +1,61 @@
-# Python
+# Environnements virtuels
+venv/
+.env/
+*.env
+
+# Données
+data/
+*.csv
+*.xlsx
+*.tsv
+*.json
+*.xml
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Fichiers multimédia lourds
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.webp
+
+# Fichiers Python compilés
 __pycache__/
-*.py[cod]
+*.pyc
 *.pyo
 *.pyd
+
+# Fichiers log et temporaires
 *.log
-*.sqlite3
+*.tmp
+*.swp
 
-# Notebooks
-.ipynb_checkpoints/
-
-# OS junk
+# Fichiers système
 .DS_Store
 Thumbs.db
+ehthumbs.db
 
-# Environnements virtuels
-.env
-.venv/
-env/
-venv/
+# Dossiers de test/cache
+.cache/
+.ipynb_checkpoints/
 
-# Docker
-output/
-*.mp4
+# Fichiers de modèles PyTorch
+*.pt
+!models/best.pt
 
-# Jupyter runtime
-*.json
-*.local/share/jupyter/
-
-# VSCode
-.vscode/
+# Fichiers à ne pas partager
+.gitignore
+CONTRIBUTING
+Dockerfile
+LICENSE
+README
+requirements.txt
