@@ -3,7 +3,7 @@ from ultralytics import YOLO
 
 # 📦 Classes à flouter : classe 'people' = 1 dans le modèle VisDrone
 CLASSES_TO_BLUR = [1]  # adapter selon la classe 'people' dans ton modèle
-MEMORY_FRAMES = 5      # nombre de frames pendant lesquelles on garde le flou
+MEMORY_FRAMES = 10      # nombre de frames pendant lesquelles on garde le flou
 
 def flouter_video(input_path, output_path):
     """
@@ -14,7 +14,7 @@ def flouter_video(input_path, output_path):
         output_path (str): Chemin vers la vidéo floutée.
     """
     print("[📥] Chargement du modèle YOLO avec tracking...")
-    model = YOLO("data/VisDrone2019-DET/runs/train/yolov8n_visdrone4/weights/best.pt")
+    model = YOLO("models/best.pt")
 
     cap = cv2.VideoCapture(input_path)
     if not cap.isOpened():
