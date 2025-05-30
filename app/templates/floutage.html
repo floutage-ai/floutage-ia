@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Floutage de Vidéo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Téléverser une vidéo à flouter</h1>
+    <form class="form-bloc" action="/start-process" method="post" enctype="multipart/form-data">
+        <label for="video">Choisir une vidéo :</label><br>
+        <input type="file" name="video" id="video" accept="video/*" required><br><br>
+        <button type="submit">Envoyer et flouter</button>
+    </form>
+</body>
+</html>

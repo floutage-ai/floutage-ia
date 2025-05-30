@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Carte interactive</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+
+    <h1>Gérer une mosaïque géoréférencée</h1>
+
+    <button class="button" onclick="openModal('uploadModal')">📤 Téléverser une nouvelle carte</button>
+    <button class="button" onclick="openModal('openModal')">📂 Ouvrir une carte existante</button>
+
+    <!-- Modal 1: Téléverser -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('uploadModal')">&times;</span>
+            <h2>Téléverser une mosaïque</h2>
+            <div id="client-error" class="flash" style="display:none;"></div>
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <div class="flash-messages-modal">
+                {% for category, message in messages %}
+                <div class="flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+            
+            <form action="{{ url_for('main.upload_mosaique') }}" method="post" enctype="multipart/form-data">
+            <label>Carte mosaïque (.jpg/.png):</label>
+            <input type="file" name="image" accept=".jpg,.jpeg,.png" required><br><br>
+
+            <label>Fichier de géoréférencement (.jgw):</label>
+            <input type="file" name="jgw" accept=".jgw" required><br><br>
+
+            <button type="submit">Téléverser la carte</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 2: Ouvrir -->
+    <div id="openModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('openModal')">&times;</span>
+            <h2>Choisir une carte enregistrée</h2>
+            <form action="/ouvrir-mosaique" method="post">
+                <select name="filename" required>
+                    {% for file in images %}
+                        <option value="{{ file }}">{{ file.rsplit('.', 1)[0] }}</option>
+                    {% endfor %}
+                </select><br><br>
+                <button type="submit">Ouvrir</button>
+            </form>
+        </div>
+    </div>
+
+    {% if carte_interactive %}
+        <h2>Carte interactive :</h2>
+        <iframe src="{{ url_for('main.afficher_video', filename=carte_interactive) }}" width="100%" height="600px" style="border:none;"></iframe>
+    {% endif %}
+
+</body>
+</html>
