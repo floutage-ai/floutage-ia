@@ -26,10 +26,10 @@ def generer_tuiles(image_path, output_folder, epsg_code="EPSG:32619"):
     # 🧱 Générer les tuiles
     subprocess.run([
         "gdal2tiles.py",
-        "-z", "0-5",
+        "-z", "2-5",  
         "-w", "none",
         tif_path,
-        os.path.join(output_folder, base)
+        os.path.join(output_folder, base.lower())
     ], check=True)
 
-    print(f"[✅] Tuiles générées dans {os.path.join(output_folder, base)}")
+    print(f"[✅] Tuiles générées dans {os.path.join(output_folder, base.lower())}")

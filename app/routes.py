@@ -120,7 +120,7 @@ def upload_mosaique():
 
     # ✅ Utiliser : générer les tuiles et afficher
     generer_tuiles(image_path, os.path.join(BASE_DIR, "data/tiles"))
-    return render_template("carte_interactive.html", base_name=os.path.splitext(image_filename)[0])
+    return render_template("carte_interactive.html", base_name=os.path.splitext(image_filename)[0].lower())
 
 
 @bp.route('/ouvrir-mosaique', methods=['POST'])
@@ -131,7 +131,7 @@ def ouvrir_mosaique():
 
     image_path = os.path.join(CARTES_FOLDER, filename)
     generer_tuiles(image_path, os.path.join(BASE_DIR, "data/tiles"))
-    return render_template("carte_interactive.html", base_name=os.path.splitext(filename)[0])
+    return render_template("carte_interactive.html", base_name=os.path.splitext(filename)[0].lower())
 
 @bp.route('/cartes/<filename>')
 def get_carte(filename):
